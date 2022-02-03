@@ -3,5 +3,10 @@
   <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-<h1>Happy Birthday <%=@name%>!</h1>
+<%=@check.is_birthday?(@day, @month)%>
+<%if @check.is_birthday?(@day, @month)%>
+  <h1>Happy Birthday <%=@name%>!</h1>
+<% else%>
+  <h1><%=@check.days_till_birthday(@day, @month)%> days until your birthday <%=@name%></h1>
+<%end%>
 </body>
